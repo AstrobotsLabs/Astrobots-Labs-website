@@ -26,13 +26,12 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     min-height: 100vh;
-    /* Smooth scrolling for anchor links */
     scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
     font-family: var(--font-heading);
-    color: var(--color-accent);
+    color: var(--color-accent); /* Default heading color */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -44,8 +43,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--color-border);
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.2); 
+    /* Changed to dashed border for digital look */
+    border-bottom: 2px dashed var(--color-border);
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.1); 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -56,7 +56,19 @@ header h1 {
     margin: 0;
     /* Neon glow effect on title */
     text-shadow: 0 0 8px var(--color-accent), 0 0 15px rgba(0, 234, 255, 0.5);
-    animation: neon-pulse 3s infinite alternate; /* Apply the pulse */
+    animation: neon-pulse 3s infinite alternate;
+}
+
+header h1 i.fas {
+    margin-right: 8px; /* Spacing for the robot icon */
+}
+
+/* Added separation line for nav */
+nav {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-left: 1px solid var(--color-border); 
 }
 
 nav a {
@@ -71,15 +83,16 @@ nav a {
 nav a:hover,
 nav a.active {
     color: var(--color-accent);
-    /* Animated underline/border effect */
+    /* Digital button hover effect */
+    background-color: rgba(0, 234, 255, 0.1); 
     border-color: var(--color-accent);
     box-shadow: 0 0 5px var(--color-accent);
-    transform: translateY(-2px);
+    transform: none; 
 }
 
-/* --- 4. HERO SECTION (Dynamic Background & Emphasis) --- */
+/* --- 4. HERO SECTION (STEM/Circuit Background) --- */
 .hero {
-    min-height: 500px;
+    min-height: 550px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,25 +101,29 @@ nav a.active {
     padding: 100px 5%;
     position: relative;
     overflow: hidden;
-    /* Use the space background effect */
-    background: radial-gradient(circle at center, rgba(0, 234, 255, 0.1), rgba(3, 10, 28, 0.9) 70%);
+    /* COMBINED BACKGROUND: CIRCUIT PATTERN + SPACE GRADIENT */
+    background: 
+        /* 1. Subtle Circuit Pattern Overlay */
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M 0 0 L 100 100 M 100 0 L 0 100 M 50 0 L 50 100 M 0 50 L 100 50" stroke="rgba(0, 234, 255, 0.05)" stroke-width="1"/></svg>') repeat, 
+        /* 2. Space Gradient */
+        radial-gradient(circle at center, rgba(0, 234, 255, 0.15), var(--color-bg) 70%);
 }
 
 .hero h2 {
-    font-size: clamp(2em, 5vw, 3.5em); /* Responsive font sizing */
-    margin-bottom: 10px;
+    font-size: clamp(2.2em, 5.5vw, 4em); 
+    margin-bottom: 15px;
     z-index: 1;
+    text-shadow: 0 0 10px var(--color-accent); 
 }
 
 .hero p {
-    font-size: clamp(1em, 2vw, 1.2em);
-    max-width: 700px;
-    margin-top: 0;
+    font-size: clamp(1.1em, 2.2vw, 1.4em);
+    max-width: 800px;
     z-index: 1;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
 }
 
-/* --- 5. CONTENT SECTIONS (Modular Panel Look) --- */
+/* --- 5. CONTENT SECTIONS (Schematic/Data Panels) --- */
 .content {
     padding: 60px 5%;
     display: flex;
@@ -120,19 +137,37 @@ nav a.active {
     border: 1px solid var(--color-border);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 234, 255, 0.1);
+    /* ADDED DIAGONAL SCHEMATIC GRID EFFECT */
+    background-image: linear-gradient(
+        -45deg, 
+        rgba(0, 234, 255, 0.03) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(0, 234, 255, 0.03) 50%, 
+        rgba(0, 234, 255, 0.03) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 20px 20px; 
+    
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .panel:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 5px 25px rgba(0, 234, 255, 0.3);
+    transform: translateY(-3px); 
+    box-shadow: 0 5px 20px rgba(0, 234, 255, 0.4); 
 }
 
+/* Headers look like digital files/data blocks */
 .content h2 {
+    color: var(--color-text); /* Use text color for H2 */
     margin-top: 0;
     padding-bottom: 10px;
-    border-bottom: 1px dashed var(--color-border);
+    /* Double line for a technical feel */
+    border-bottom: 3px double var(--color-accent); 
+    background-color: rgba(0, 234, 255, 0.05); 
+    padding-left: 10px;
 }
 
 /* Styling for the Services list with icons */
