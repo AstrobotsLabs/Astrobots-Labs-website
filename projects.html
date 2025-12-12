@@ -6,10 +6,11 @@
     <title>Projects - AstroBotix Labs</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
-    <h1>AstroBotix Labs</h1>
+    <h1><i class="fas fa-robot"></i> AstroBotix Labs</h1>
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -19,10 +20,48 @@
     </nav>
     </header>
     <section class="content">
-        <div class="panel">
-            <h2>Our Projects</h2>
-            <p>A showcase of our robotics builds, astronomy observations, and STEM innovations. Data feeds are being initialized...</p>
+        
+        <div class="panel span-2">
+            <h2><i class="fas fa-satellite"></i> Featured Project: Autonomous Mars Rover</h2>
+            <div class="project-media">
+                <img src="https://images.unsplash.com/photo-1596701831131-41916383e20d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE3fHxyb2JvdCUyMG1hcnN8ZW58MHx8fHwxNjQ3NDMwOTQ5&ixlib=rb-1.2.1&q=80&w=1280" alt="Autonomous Mars Rover">
             </div>
+            <p>Our flagship build: a 6-wheeled robotic platform utilizing computer vision for obstacle avoidance and soil sample collection. Built entirely with student code and 3D-printed parts.</p>
+            <p class="project-meta">Status: Operational | Technology: Raspberry Pi, Python, OpenCV</p>
+        </div>
+
+        <div class="panel">
+            <h2><i class="fas fa-star-half-alt"></i> Total Star Hours</h2>
+            <p style="font-size: 2em; color: var(--color-accent); font-family: var(--font-heading);">890+ Hrs</p>
+            <p>Dedicated to telescopic observation and data acquisition.</p>
+        </div>
+
+        <div class="panel span-2">
+            <h2><i class="fas fa-code"></i> Project: Lunar Trajectory Simulation</h2>
+            <p>A sophisticated Java application simulating the orbital mechanics of a crewed mission to the Moon. Includes real-time gravitational calculations and thrust optimization routines.</p>
+            <p class="project-meta">Status: Complete | Focus: Physics, Advanced Algorithms</p>
+        </div>
+
+        <div class="panel row-span-2">
+            <h2><i class="fas fa-screwdriver"></i> Project: Custom Telescope Mount</h2>
+            <p>A custom-built, equatorial mount designed to increase tracking precision for astrophotography. Utilizes stepper motors and Arduino for precise control.</p>
+            <div class="project-meta" style="margin-top: 20px;">
+                <p>Hardware: Arduino Mega, NEMA 17 Steppers</p>
+                <p>Built by: Advanced Robotics Workshop</p>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <h2><i class="fas fa-database"></i> Exoplanet Data Mining</h2>
+            <p>Students analyzed publicly available data from the Kepler Mission to identify potential exoplanet transit signatures. Successful verification of 3 previously cataloged planets.</p>
+        </div>
+        
+        <div class="panel">
+            <h2><i class="fas fa-rocket"></i> Launch Pad Status</h2>
+            <p>Currently researching materials for a high-altitude weather balloon payload project.</p>
+            <p style="color: var(--color-accent); margin-top: 10px;">Looking for partners!</p>
+        </div>
+
     </section>
     <footer>
         <p>© 2025 AstroBotix Labs. All rights reserved. | System Status: ONLINE</p>
