@@ -18,6 +18,8 @@
 /* --- 2. GLOBAL RESET & BASE STYLES --- */
 * {
     box-sizing: border-box;
+    /* This prevents any element from causing horizontal scrolling outside of its parent */
+    max-width: 100%; 
 }
 
 body {
@@ -27,6 +29,8 @@ body {
     color: var(--color-text);
     min-height: 100vh;
     scroll-behavior: smooth;
+    /* Hides any accidental horizontal overflow on the body */
+    overflow-x: hidden; 
 }
 
 h1, h2, h3 {
@@ -182,8 +186,8 @@ nav a.active {
     cursor: pointer; 
     position: relative;
     padding-right: 40px; 
-    border-bottom: 1px solid rgba(0, 234, 255, 0.1); /* Use border-bottom for separators */
-    list-style: none; /* Ensure no bullet points */
+    border-bottom: 1px solid rgba(0, 234, 255, 0.1); 
+    list-style: none; 
     padding-left: 0;
 }
 .service-item:last-of-type {
@@ -245,7 +249,8 @@ nav a.active {
 }
 
 .project-media img {
-    width: 100%;
+    /* Set max-width to 100% to ensure responsiveness */
+    max-width: 100%; 
     height: auto;
     display: block;
     transition: transform 0.4s ease;
@@ -284,5 +289,80 @@ footer {
     }
     50% {
         text-shadow: 0 0 10px var(--color-accent), 0 0 20px rgba(0, 234, 255, 0.8);
+    }
+}
+
+/* ================================================= */
+/* 🚀 10. MOBILE RESPONSIVENESS (Media Queries) */
+/* ================================================= */
+
+/* --- Tablet and large Phone Styles (Max Width 900px) --- */
+@media (max-width: 900px) {
+    
+    /* 1. Simplify Bento Grid: Force 1 column on smaller devices */
+    .content {
+        /* This overrides the 'auto-fit' grid, ensuring all panels stack vertically */
+        grid-template-columns: 1fr; 
+        padding: 40px 5%; /* Reduce vertical padding */
+    }
+
+    /* 2. Remove multi-span classes: All panels should take full width */
+    .panel.span-2,
+    .panel.row-span-2 {
+        grid-column: span 1; 
+        grid-row: span 1;
+    }
+
+    /* 3. Hero Section: Reduce font size for readability */
+    .hero h2 {
+        font-size: 2.5em; 
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+    .hero {
+        min-height: 400px;
+    }
+}
+
+/* --- Small Phone Styles (Max Width 600px) --- */
+@media (max-width: 600px) {
+    
+    /* 1. Header: Stack Logo and Nav */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 10px;
+    }
+    
+    /* 2. Navigation: Make links smaller and centered */
+    nav {
+        border-left: none; /* Remove the vertical line divider */
+        padding-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap; /* Allows links to wrap if necessary */
+    }
+    nav a {
+        margin: 5px;
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    /* 3. Hero Section: Further reduce font sizes */
+    .hero h2 {
+        font-size: 1.8em; 
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    
+    /* 4. Panel Content: Reduce internal padding */
+    .panel {
+        padding: 20px;
+    }
+    .content h2 {
+        font-size: 1.2em;
     }
 }
