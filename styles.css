@@ -1,134 +1,11 @@
-/* --- 1. CORE VARIABLES & FONTS --- */
-:root {
-    /* Primary Color: Dark, Space-like Background */
-    --color-bg: #030a1c; 
-    /* Secondary Color: Deep Black/Near-Black for panels */
-    --color-bg-panel: #061330;
-    /* Neon Accent: Electric Blue/Cyan (Your Brand Color) */
-    --color-accent: #00eaff;
-    /* Highlighting/Text Color */
-    --color-text: #e6f7ff; 
-    /* Subtle Border/Line Color (Translucent) */
-    --color-border: rgba(0, 234, 255, 0.3);
-    /* Font Stack */
-    --font-heading: 'Share Tech Mono', monospace; 
-    --font-body: 'Poppins', sans-serif; 
-}
-
-/* --- 2. GLOBAL RESET & BASE STYLES --- */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: var(--font-body);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    min-height: 100vh;
-    scroll-behavior: smooth;
-}
-
-h1, h2, h3 {
-    font-family: var(--font-heading);
-    color: var(--color-accent); /* Default heading color */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* --- 3. HEADER & NAVIGATION (HUD/Panel Look) --- */
-header {
-    background: var(--color-bg-panel);
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Changed to dashed border for digital look */
-    border-bottom: 2px dashed var(--color-border);
-    box-shadow: 0 0 10px rgba(0, 234, 255, 0.1); 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    font-size: 1.8em;
-    margin: 0;
-    /* Neon glow effect on title */
-    text-shadow: 0 0 8px var(--color-accent), 0 0 15px rgba(0, 234, 255, 0.5);
-    animation: neon-pulse 3s infinite alternate;
-}
-
-header h1 i.fas {
-    margin-right: 8px; /* Spacing for the robot icon */
-}
-
-/* Added separation line for nav */
-nav {
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    border-left: 1px solid var(--color-border); 
-}
-
-nav a {
-    margin: 0 10px;
-    color: var(--color-text);
-    text-decoration: none;
-    padding: 8px 15px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--color-accent);
-    /* Digital button hover effect */
-    background-color: rgba(0, 234, 255, 0.1); 
-    border-color: var(--color-accent);
-    box-shadow: 0 0 5px var(--color-accent);
-    transform: none; 
-}
-
-/* --- 4. HERO SECTION (STEM/Circuit Background) --- */
-.hero {
-    min-height: 550px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 100px 5%;
-    position: relative;
-    overflow: hidden;
-    /* COMBINED BACKGROUND: CIRCUIT PATTERN + SPACE GRADIENT */
-    background: 
-        /* 1. Subtle Circuit Pattern Overlay */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M 0 0 L 100 100 M 100 0 L 0 100 M 50 0 L 50 100 M 0 50 L 100 50" stroke="rgba(0, 234, 255, 0.05)" stroke-width="1"/></svg>') repeat, 
-        /* 2. Space Gradient */
-        radial-gradient(circle at center, rgba(0, 234, 255, 0.15), var(--color-bg) 70%);
-}
-
-.hero h2 {
-    font-size: clamp(2.2em, 5.5vw, 4em); 
-    margin-bottom: 15px;
-    z-index: 1;
-    text-shadow: 0 0 10px var(--color-accent); 
-}
-
-.hero p {
-    font-size: clamp(1.1em, 2.2vw, 1.4em);
-    max-width: 800px;
-    z-index: 1;
-    color: var(--color-text);
-}
-
-/* --- 5. CONTENT SECTIONS (Schematic/Data Panels) --- */
+/* --- 5. CONTENT SECTIONS (Schematic/Data Panels & GRID) --- */
 .content {
     padding: 60px 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    /* 1. Enable CSS Grid on the main content area */
+    display: grid;
+    /* 2. Define a flexible 1fr (fractional unit) grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Space between the grid panels */
 }
 
 /* Panel container for content pages */
@@ -159,6 +36,16 @@ nav a.active {
     box-shadow: 0 5px 20px rgba(0, 234, 255, 0.4); 
 }
 
+/* --- Size Modifiers for Bento Grid --- */
+/* Makes a panel span 2 columns */
+.panel.span-2 {
+    grid-column: span 2;
+}
+/* Makes a panel span 2 rows */
+.panel.row-span-2 {
+    grid-row: span 2;
+}
+
 /* Headers look like digital files/data blocks */
 .content h2 {
     color: var(--color-text); /* Use text color for H2 */
@@ -169,49 +56,4 @@ nav a.active {
     background-color: rgba(0, 234, 255, 0.05); 
     padding-left: 10px;
 }
-
-/* Styling for the Services list with icons */
-.content ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.content ul li {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(0, 234, 255, 0.1);
-    font-family: var(--font-heading);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.content ul li:last-child {
-    border-bottom: none;
-}
-
-.content ul li i.fas {
-    color: var(--color-accent);
-    font-size: 1.2em;
-}
-
-/* --- 6. FOOTER (Console/Terminal Look) --- */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: var(--color-bg-panel);
-    border-top: 2px solid var(--color-border);
-    margin-top: 40px;
-    font-family: var(--font-heading);
-    font-size: 0.9em;
-    color: rgba(230, 247, 255, 0.7);
-}
-
-/* --- 7. KEYFRAMES ANIMATIONS --- */
-@keyframes neon-pulse {
-    0%, 100% {
-        text-shadow: 0 0 5px var(--color-accent), 0 0 10px rgba(0, 234, 255, 0.4);
-    }
-    50% {
-        text-shadow: 0 0 10px var(--color-accent), 0 0 20px rgba(0, 234, 255, 0.8);
-    }
-}
+/* ... Keep the rest of your list/footer/header styles the same ... */
