@@ -1,122 +1,42 @@
-/* --- 1. CORE VARIABLES --- */
-:root {
-    --color-bg: #030a1c; 
-    --color-bg-panel: #061330;
-    --color-accent: #00eaff;
-    --color-text: #e6f7ff; 
-    --color-border: rgba(0, 234, 255, 0.3);
-    --font-heading: 'Share Tech Mono', monospace; 
-    --font-body: 'Poppins', sans-serif; 
+/* --- SERVICES ACCORDION STYLING --- */
+.services-list {
+    list-style: none;
+    padding: 0;
 }
 
-/* --- 2. GLOBAL RESET --- */
-* { box-sizing: border-box; max-width: 100%; }
-
-body {
-    margin: 0;
-    font-family: var(--font-body);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    overflow-x: hidden; 
+.service-item {
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-h1, h2, h3 { font-family: var(--font-heading); color: var(--color-accent); text-transform: uppercase; }
-
-/* --- 3. HEADER --- */
-header {
-    background: var(--color-bg-panel);
-    padding: 15px 5%;
+.service-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px dashed var(--color-border);
-    position: sticky; top: 0; z-index: 1000;
-}
-
-nav a {
-    margin-left: 15px;
-    color: var(--color-text);
-    text-decoration: none;
-    padding: 5px 10px;
-    transition: 0.3s;
-}
-
-nav a:hover, nav a.active {
-    color: var(--color-accent);
-    box-shadow: 0 0 10px var(--color-accent);
-}
-
-/* --- 4. HERO --- */
-.hero {
-    padding: 80px 5%;
-    text-align: center;
-    background: radial-gradient(circle at center, rgba(0, 234, 255, 0.1), var(--color-bg));
-}
-
-.hero h2 { font-size: 3em; margin-bottom: 10px; }
-
-/* --- 5. BENTO GRID --- */
-.content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 40px 5%;
-}
-
-.panel {
-    background: var(--color-bg-panel);
-    border: 1px solid var(--color-border);
-    padding: 25px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.panel:hover { border-color: var(--color-accent); transform: translateY(-5px); }
-
-.panel.span-2 { grid-column: span 2; }
-
-/* --- 6. CONTACT BUTTONS & SOCIALS --- */
-.contact-buttons { display: flex; gap: 10px; margin-top: 15px; }
-
-.btn {
-    padding: 8px 18px;
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    text-decoration: none;
+    padding: 20px 0;
     font-family: var(--font-heading);
-    transition: 0.3s;
-}
-
-.btn:hover { background: rgba(0, 234, 255, 0.1); box-shadow: 0 0 10px var(--color-accent); }
-
-.btn.secondary { border-color: var(--color-text); color: var(--color-text); }
-
-.footer-content { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-
-.social-links a {
     color: var(--color-text);
-    font-size: 1.6rem;
-    margin: 0 15px;
-    transition: 0.3s;
 }
 
-.social-links a:hover { color: var(--color-accent); text-shadow: 0 0 10px var(--color-accent); }
-
-.status-glow { color: #00ff88; text-shadow: 0 0 5px #00ff88; font-weight: bold; }
-
-/* --- 7. FOOTER --- */
-footer {
-    padding: 30px;
-    background: var(--color-bg-panel);
-    border-top: 2px solid var(--color-border);
-    margin-top: 50px;
+.indicator {
+    transition: transform 0.4s ease;
 }
 
-/* --- 8. MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-    .content { grid-template-columns: 1fr; }
-    .panel.span-2 { grid-column: span 1; }
-    header { flex-direction: column; text-align: center; }
-    nav { margin-top: 15px; }
-    .hero h2 { font-size: 2em; }
+/* Rotate the arrow when active */
+.service-item.active .indicator {
+    transform: rotate(180deg);
+    color: var(--color-accent);
+}
+
+.details-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+    background: rgba(0, 234, 255, 0.03);
+}
+
+.service-item.active .details-content {
+    max-height: 500px; /* High enough to fit content */
+    padding-bottom: 20px;
 }
