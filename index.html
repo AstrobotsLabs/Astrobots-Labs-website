@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstroBotix Labs | STEM & Astronomy Education</title>
-    
+    <title>AstroBotix Labs | STEM & Astronomy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,47 +13,63 @@
     <header>
         <h1><i class="fas fa-robot"></i> AstroBotix Labs</h1>
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Connect</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <h2>STEM Learning & Astronomy Education</h2>
-        <p>Empowering young innovators through robotics, astronomy, and hands-on STEM experiences. Prepare for launch.</p>
+        <p>Empowering young innovators through robotics, astronomy, and hands-on experiences. Prepare for launch.</p>
     </section>
 
-    <main class="content">
+    <section id="about" class="content">
         <div class="panel span-2">
             <h2>Our Mission</h2>
-            <p>At AstroBotix Labs, we bridge the gap between imagination and engineering. Our programs are designed to inspire the next generation of space explorers and roboticists.</p>
+            <p>At AstroBotix Labs, we bridge the gap between imagination and engineering. Our programs are designed to inspire the next generation of space explorers and roboticists through immersive, hands-on learning experiences that bring complex concepts to life.</p>
         </div>
+    </section>
 
+    <section id="services" class="content">
         <div class="panel">
-            <h2>Connect</h2>
-            <p>Stay updated with our latest launches and workshops.</p>
+            <h2>Services & Workshops</h2>
+            <ul class="services-list">
+                <li class="service-item">
+                    <div class="service-title">Robotics Workshops <i class="fas fa-chevron-down indicator"></i></div>
+                    <div class="details-content"><p>Building and programming autonomous rovers and drones using industry-standard tools.</p></div>
+                </li>
+                <li class="service-item">
+                    <div class="service-title">Astronomy Observation <i class="fas fa-chevron-down indicator"></i></div>
+                    <div class="details-content"><p>Night sky navigation, telescope operation, and deep-space astrophotography sessions.</p></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="content">
+        <div class="panel span-2">
+            <h2>Active Projects</h2>
+            <div class="project-media">
+                <img src="project1.jpg" alt="Rover Project">
+            </div>
+            <p>From AI-driven rovers to school observatory setups, see what we're launching next.</p>
+            <div class="project-meta">Status: In Development | Location: Lab Alpha</div>
+        </div>
+    </section>
+
+    <section id="contact" class="content">
+        <div class="panel">
+            <h2>Connect With Us</h2>
+            <p>Ready to start your journey? Reach out directly to our team at <strong>vatsalgarg@astrobotixlabs.com</strong>.</p>
             <div class="contact-buttons">
-                <a href="mailto:vatsalgarg@astrobotixlabs.com" class="btn">Email</a>
+                <a href="mailto:vatsalgarg@astrobotixlabs.com" class="btn">Email Us</a>
                 <a href="https://www.instagram.com/AstrobotixLabs/" target="_blank" class="btn secondary">Instagram</a>
             </div>
         </div>
-
-        <div class="panel">
-            <h2>Stats</h2>
-            <div class="stats">
-                <p><strong>Workshops:</strong> 50+</p>
-                <p><strong>Students:</strong> 1000+</p>
-            </div>
-        </div>
-
-        <div class="panel span-2">
-            <h2>Future Tech</h2>
-            <p>From AI-driven rovers to deep-space observation, we explore the tech that will define the next century.</p>
-        </div>
-    </main>
+    </section>
 
     <footer>
         <div class="footer-content">
@@ -67,6 +80,14 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
