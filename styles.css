@@ -1,42 +1,121 @@
-/* --- SERVICES ACCORDION STYLING --- */
-.services-list {
-    list-style: none;
-    padding: 0;
+/* --- 1. CORE VARIABLES --- */
+:root {
+    --color-bg: #030a1c; 
+    --color-bg-panel: #061330;
+    --color-accent: #00eaff;
+    --color-text: #e6f7ff; 
+    --color-border: rgba(0, 234, 255, 0.3);
+    --font-heading: 'Share Tech Mono', monospace; 
+    --font-body: 'Poppins', sans-serif; 
 }
 
-.service-item {
-    border-bottom: 1px solid var(--color-border);
-    cursor: pointer;
-    transition: background 0.3s;
+/* --- 2. GLOBAL RESET --- */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
 }
 
-.service-title {
+h1, h2, h3 { 
+    font-family: var(--font-heading); 
+    color: var(--color-accent); 
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+/* --- 3. HEADER & NAVIGATION --- */
+header {
+    background: var(--color-bg-panel);
+    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    font-family: var(--font-heading);
+    border-bottom: 2px dashed var(--color-border);
+}
+
+nav a {
+    margin-left: 20px;
     color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: 0.3s;
 }
 
-.indicator {
-    transition: transform 0.4s ease;
-}
-
-/* Rotate the arrow when active */
-.service-item.active .indicator {
-    transform: rotate(180deg);
+nav a.active, nav a:hover {
     color: var(--color-accent);
+    text-shadow: 0 0 10px var(--color-accent);
 }
 
-.details-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out, padding 0.5s ease;
-    background: rgba(0, 234, 255, 0.03);
+/* --- 4. BENTO GRID SYSTEM --- */
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+    gap: 20px;
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.service-item.active .details-content {
-    max-height: 500px; /* High enough to fit content */
-    padding-bottom: 20px;
+.panel {
+    background: var(--color-bg-panel);
+    border: 1px solid var(--color-border);
+    padding: 30px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.panel:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 234, 255, 0.1);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+/* --- 5. BUTTONS & SOCIALS --- */
+.contact-buttons { margin-top: 20px; }
+
+.btn {
+    padding: 10px 25px;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: rgba(0, 234, 255, 0.1);
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+}
+
+.social-links a {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.social-links a:hover { color: var(--color-accent); }
+
+.status-glow { color: #00ff88; text-shadow: 0 0 5px #00ff88; }
+
+/* --- 6. MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .content { grid-template-columns: 1fr; }
+    .span-2 { grid-column: span 1; }
+    header { flex-direction: column; gap: 15px; }
+    nav a { margin: 0 10px; }
 }
