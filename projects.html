@@ -22,53 +22,46 @@
     </header>
 
     <main class="content">
-        <div class="panel span-2 clickable" 
-             data-title="Lunar Trajectory Simulation" 
-             data-image="lunar-project.jpg" 
-             data-desc="This Java-based simulation calculates real-time orbital mechanics for crewed lunar missions. It features thrust optimization routines and gravitational pull modeling from both Earth and the Moon.">
+        <div class="panel span-2" onclick="openProject('Lunar Trajectory Simulation', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Lunar+Sim', 'This Java-based orbital mechanics simulator calculates trajectories for crewed missions. It uses multi-body gravitational modeling and thrust-vectoring optimization to ensure mission success. Students can visualize orbital decay and landing burns in a high-fidelity 3D simulated environment.', 'Java, Physics Engine, 3D Visualization')">
             <h2><i class="fas fa-code"></i> Lunar Trajectory Simulation</h2>
-            <p>Advanced Java application for orbital mechanics.</p>
-            <span class="status-glow">CLICK TO EXPAND</span>
+            <p>Advanced orbital mechanics for mission modeling.</p>
+            <p class="status-glow">SYSTEM: READY_TO_EXPAND</p>
         </div>
 
-        <div class="panel span-1 clickable" 
-             data-title="Astronomical Data Acquisition" 
-             data-image="telescope.jpg" 
-             data-desc="Over 890 hours of dedicated telescopic observation focused on deep-space object photography and light-curve analysis of variable stars.">
-            <h2><i class="fas fa-star-half-alt"></i> Star Hours</h2>
-            <p style="font-size: 1.5em; color: var(--color-accent);">890+ Hrs</p>
+        <div class="panel span-1" onclick="openProject('890+ Star Hours', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Deep+Space', 'Over 890 hours of deep-space data acquisition. This project involved long-exposure astrophotography and tracking of celestial bodies to analyze light-curve variability in distant stars and galaxies.', 'Astrophotography, Data Analysis, CCD Optics')">
+            <h2><i class="fas fa-star-half-alt"></i> Total Star Hours</h2>
+            <p style="font-size: 2.5rem; color: var(--color-accent); font-family: var(--font-heading);">890+</p>
+            <p>Dedicated telescopic observation data.</p>
         </div>
 
-        <div class="panel span-1 clickable" 
-             data-title="Rover Alpha: Autonomous Navigation" 
-             data-image="rover.jpg" 
-             data-desc="A 4-wheeled autonomous rover designed to navigate obstacle-rich environments using LIDAR and AI-driven pathfinding.">
+        <div class="panel span-1" onclick="openProject('Rover Alpha: Autonomous Pathfinding', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Rover+Alpha', 'A robotic platform designed to navigate uneven lunar-simulated terrain. Utilizing LIDAR and ultrasonic sensors, the rover maps its environment in real-time to find the most efficient path autonomously.', 'Robotics, LIDAR, C++, Autonomous Logic')">
             <h2><i class="fas fa-satellite"></i> Rover Alpha</h2>
-            <p>AI pathfinding in simulated terrain.</p>
+            <p>Autonomous navigation in simulated terrain.</p>
         </div>
 
-        <div class="panel span-2 clickable" 
-             data-title="School Observatory Initiative" 
-             data-image="observatory.jpg" 
-             data-desc="We design and install remote-access observatory systems for schools, allowing students to conduct real science from their classrooms.">
+        <div class="panel span-2" onclick="openProject('School Observatory Initiative', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Observatory', 'Deploying remote-access telescope systems in educational institutions. This project bridges the gap between students and the cosmos by allowing classroom-based real-time celestial study.', 'Remote Systems, Optics, Educational Outreach')">
             <h2>School Observatory Setup</h2>
-            <p>Installing remote-access telescope systems for educational institutions.</p>
+            <p>Deploying remote-access optics for research.</p>
+            <p class="status-glow">CLICK TO VIEW BLUEPRINTS</p>
         </div>
     </main>
 
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modalTitle">Project Title</h2>
+    <div id="projectModal" class="modal-overlay">
+        <span class="close-btn" onclick="closeProject()">&times;</span>
+        <div class="modal-container">
+            <img id="modalImg" src="" class="modal-header-img">
             <div class="modal-body">
-                <div class="modal-image-container">
-                    <img id="modalImg" src="" alt="Project Image">
+                <div class="modal-main">
+                    <h2 id="modalTitle" style="font-size: 3rem; margin-bottom: 20px;">Project Title</h2>
+                    <p id="modalDesc" style="font-size: 1.2rem; color: #ccc; line-height: 1.8;">Details...</p>
                 </div>
-                <div class="modal-text">
-                    <p id="modalDesc">Detailed description goes here...</p>
-                    <div class="modal-footer">
-                        <p>Inquiry: <span class="status-glow">vatsalgarg@astrobotixlabs.com</span></p>
-                    </div>
+                <div class="modal-side" style="border-left: 1px solid var(--color-border); padding-left: 30px;">
+                    <h3 style="margin-bottom: 10px;">Tech Stack</h3>
+                    <p id="modalStack" class="status-glow" style="margin-bottom: 30px;">Stack info</p>
+                    
+                    <h3>Inquiry</h3>
+                    <p>Contact the Lead Engineer for technical documentation.</p>
+                    <a href="mailto:vatsalgarg@astrobotixlabs.com" class="status-glow" style="text-decoration: none; display: block; margin-top: 10px;">[ TRANSMIT EMAIL ]</a>
                 </div>
             </div>
         </div>
@@ -79,26 +72,38 @@
             <a href="mailto:vatsalgarg@astrobotixlabs.com"><i class="fas fa-envelope"></i></a>
             <a href="https://www.instagram.com/AstrobotixLabs/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>© 2025 AstroBotix Labs.</p>
+        <p>© 2025 AstroBotix Labs. | System Status: <span class="status-glow">ONLINE</span></p>
     </footer>
 
     <script>
-        const modal = document.getElementById("projectModal");
-        const panels = document.querySelectorAll(".clickable");
-        const closeBtn = document.querySelector(".close-btn");
+        function openProject(title, img, desc, stack) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalStack').innerText = stack;
+            
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevents background scroll
+        }
 
-        panels.forEach(panel => {
-            panel.addEventListener("click", () => {
-                document.getElementById("modalTitle").innerText = panel.getAttribute("data-title");
-                document.getElementById("modalImg").src = panel.getAttribute("data-image");
-                document.getElementById("modalDesc").innerText = panel.getAttribute("data-desc");
-                modal.style.display = "flex";
-            });
-        });
+        function closeProject() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enables background scroll
+            }, 500);
+        }
 
-        closeBtn.onclick = () => modal.style.display = "none";
-        window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+        // Close when clicking the blurred background
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) { closeProject(); }
+        }
     </script>
-
 </body>
 </html>
