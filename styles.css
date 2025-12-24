@@ -1,4 +1,3 @@
-/* --- 1. CORE VARIABLES --- */
 :root {
     --color-bg: #030a1c; 
     --color-bg-panel: #061330;
@@ -9,25 +8,16 @@
     --font-body: 'Poppins', sans-serif; 
 }
 
-/* --- 2. GLOBAL RESET --- */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    margin: 0;
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
 }
 
-h1, h2, h3 { 
-    font-family: var(--font-heading); 
-    color: var(--color-accent); 
-    text-transform: uppercase;
-    margin-top: 0;
-}
-
-/* --- 3. HEADER & NAVIGATION --- */
+/* --- HEADER & NAV --- */
 header {
     background: var(--color-bg-panel);
     padding: 20px 5%;
@@ -41,22 +31,18 @@ nav a {
     margin-left: 20px;
     color: var(--color-text);
     text-decoration: none;
-    font-size: 0.9em;
-    transition: 0.3s;
+    font-family: var(--font-heading);
 }
 
-nav a.active, nav a:hover {
-    color: var(--color-accent);
-    text-shadow: 0 0 10px var(--color-accent);
-}
+nav a.active, nav a:hover { color: var(--color-accent); text-shadow: 0 0 8px var(--color-accent); }
 
-/* --- 4. BENTO GRID SYSTEM --- */
+/* --- THE 3-COLUMN BENTO GRID --- */
 .content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal tracks */
     gap: 20px;
     padding: 40px 5%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
 }
 
@@ -68,54 +54,25 @@ nav a.active, nav a:hover {
     transition: 0.3s;
 }
 
-.panel:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 234, 255, 0.1);
-}
+.panel:hover { border-color: var(--color-accent); transform: translateY(-3px); }
 
-.span-2 {
-    grid-column: span 2;
-}
+/* UNEQUAL SPAN CLASSES */
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
 
-/* --- 5. BUTTONS & SOCIALS --- */
-.contact-buttons { margin-top: 20px; }
+h2, h3 { font-family: var(--font-heading); color: var(--color-accent); text-transform: uppercase; margin-bottom: 15px; }
 
-.btn {
-    padding: 10px 25px;
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    display: inline-block;
-    transition: 0.3s;
-}
+.status-glow { color: #00ff88; text-shadow: 0 0 5px #00ff88; font-weight: bold; }
 
-.btn:hover {
-    background: rgba(0, 234, 255, 0.1);
-}
-
-footer {
-    padding: 40px;
-    text-align: center;
-    border-top: 1px solid var(--color-border);
-}
-
-.social-links a {
-    color: var(--color-text);
-    font-size: 1.5rem;
-    margin: 0 15px;
-    transition: 0.3s;
-}
-
+/* --- FOOTER --- */
+footer { padding: 40px; text-align: center; border-top: 1px solid var(--color-border); margin-top: 40px; }
+.social-links a { color: var(--color-text); font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
 .social-links a:hover { color: var(--color-accent); }
 
-.status-glow { color: #00ff88; text-shadow: 0 0 5px #00ff88; }
-
-/* --- 6. MOBILE RESPONSIVE --- */
-@media (max-width: 768px) {
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
     .content { grid-template-columns: 1fr; }
-    .span-2 { grid-column: span 1; }
+    .span-1, .span-2, .span-3 { grid-column: span 1; }
     header { flex-direction: column; gap: 15px; }
-    nav a { margin: 0 10px; }
 }
