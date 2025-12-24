@@ -3,70 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - AstroBotix Labs</title>
+    <title>Projects | AstroBotix Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
     <header>
-    <h1><i class="fas fa-robot"></i> AstroBotix Labs</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+        <h1><i class="fas fa-robot"></i> AstroBotix Labs</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
-    <section class="content">
-        
-        <div class="panel span-2">
-            <h2><i class="fas fa-satellite"></i> Featured Project: Autonomous Mars Rover</h2>
-            <div class="project-media">
-                <img src="https://images.unsplash.com/photo-1596701831131-41916383e20d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE3fHxyb2JvdCUyMG1hcnN8ZW58MHx8fHwxNjQ3NDMwOTQ5&ixlib=rb-1.2.1&q=80&w=1280" alt="Autonomous Mars Rover">
+
+    <main class="content">
+        <div class="panel span-2 clickable" 
+             data-title="Lunar Trajectory Simulation" 
+             data-image="lunar-project.jpg" 
+             data-desc="This Java-based simulation calculates real-time orbital mechanics for crewed lunar missions. It features thrust optimization routines and gravitational pull modeling from both Earth and the Moon.">
+            <h2><i class="fas fa-code"></i> Lunar Trajectory Simulation</h2>
+            <p>Advanced Java application for orbital mechanics.</p>
+            <span class="status-glow">CLICK TO EXPAND</span>
+        </div>
+
+        <div class="panel span-1 clickable" 
+             data-title="Astronomical Data Acquisition" 
+             data-image="telescope.jpg" 
+             data-desc="Over 890 hours of dedicated telescopic observation focused on deep-space object photography and light-curve analysis of variable stars.">
+            <h2><i class="fas fa-star-half-alt"></i> Star Hours</h2>
+            <p style="font-size: 1.5em; color: var(--color-accent);">890+ Hrs</p>
+        </div>
+
+        <div class="panel span-1 clickable" 
+             data-title="Rover Alpha: Autonomous Navigation" 
+             data-image="rover.jpg" 
+             data-desc="A 4-wheeled autonomous rover designed to navigate obstacle-rich environments using LIDAR and AI-driven pathfinding.">
+            <h2><i class="fas fa-satellite"></i> Rover Alpha</h2>
+            <p>AI pathfinding in simulated terrain.</p>
+        </div>
+
+        <div class="panel span-2 clickable" 
+             data-title="School Observatory Initiative" 
+             data-image="observatory.jpg" 
+             data-desc="We design and install remote-access observatory systems for schools, allowing students to conduct real science from their classrooms.">
+            <h2>School Observatory Setup</h2>
+            <p>Installing remote-access telescope systems for educational institutions.</p>
+        </div>
+    </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Project Title</h2>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalImg" src="" alt="Project Image">
+                </div>
+                <div class="modal-text">
+                    <p id="modalDesc">Detailed description goes here...</p>
+                    <div class="modal-footer">
+                        <p>Inquiry: <span class="status-glow">vatsalgarg@astrobotixlabs.com</span></p>
+                    </div>
+                </div>
             </div>
-            <p>Our flagship build: a 6-wheeled robotic platform utilizing computer vision for obstacle avoidance and soil sample collection. Built entirely with student code and 3D-printed parts.</p>
-            <p class="project-meta">Status: Operational | Technology: Raspberry Pi, Python, OpenCV</p>
         </div>
+    </div>
 
-        <div class="panel span-2">
-            <h2><i class="fas fa-code"></i> Project: Lunar Trajectory Simulation</h2>
-            <p>A sophisticated Java application simulating the orbital mechanics of a crewed mission to the Moon. Includes real-time gravitational calculations and thrust optimization routines.</p>
-            <p class="project-meta">Status: Complete | Focus: Physics, Advanced Algorithms</p>
-        </div> 
-        
-        <div class="panel">
-            <h2><i class="fas fa-star-half-alt"></i> Total Star Hours</h2>
-            <p style="font-size: 2em; color: var(--color-accent); font-family: var(--font-heading);">890+ Hrs</p>
-            <p>Dedicated to telescopic observation and data acquisition.</p>
-        </div>
-
-
-
-        <div class="panel row-span-2">
-            <h2><i class="fas fa-screwdriver"></i> Project: Custom Telescope Mount</h2>
-            <p>A custom-built, equatorial mount designed to increase tracking precision for astrophotography. Utilizes stepper motors and Arduino for precise control.</p>
-            <div class="project-meta" style="margin-top: 20px;">
-                <p>Hardware: Arduino Mega, NEMA 17 Steppers</p>
-                <p>Built by: Advanced Robotics Workshop</p>
-            </div>
-        </div>
-        
-        <div class="panel">
-            <h2><i class="fas fa-database"></i> Exoplanet Data Mining</h2>
-            <p>Students analyzed publicly available data from the Kepler Mission to identify potential exoplanet transit signatures. Successful verification of 3 previously cataloged planets.</p>
-        </div>
-        
-        <div class="panel">
-            <h2><i class="fas fa-rocket"></i> Launch Pad Status</h2>
-            <p>Currently researching materials for a high-altitude weather balloon payload project.</p>
-            <p style="color: var(--color-accent); margin-top: 10px;">Looking for partners!</p>
-        </div>
-
-    </section>
     <footer>
-        <p>© 2025 AstroBotix Labs. All rights reserved. | System Status: ONLINE</p>
+        <div class="social-links">
+            <a href="mailto:vatsalgarg@astrobotixlabs.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/AstrobotixLabs/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 AstroBotix Labs.</p>
     </footer>
+
+    <script>
+        const modal = document.getElementById("projectModal");
+        const panels = document.querySelectorAll(".clickable");
+        const closeBtn = document.querySelector(".close-btn");
+
+        panels.forEach(panel => {
+            panel.addEventListener("click", () => {
+                document.getElementById("modalTitle").innerText = panel.getAttribute("data-title");
+                document.getElementById("modalImg").src = panel.getAttribute("data-image");
+                document.getElementById("modalDesc").innerText = panel.getAttribute("data-desc");
+                modal.style.display = "flex";
+            });
+        });
+
+        closeBtn.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+    </script>
+
 </body>
 </html>
