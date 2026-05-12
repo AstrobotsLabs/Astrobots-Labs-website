@@ -1,0 +1,224 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | AstroBotix Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-robot"></i> AstroBotix Labs</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="panel span-2" onclick="openProject('Lunar Trajectory Simulation', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Lunar+Sim', 'This Java-based orbital mechanics simulator calculates trajectories for crewed missions. It uses multi-body gravitational modeling and thrust-vectoring optimization to ensure mission success. Students can visualize orbital decay and landing burns in a high-fidelity 3D simulated environment.', 'Java, Physics Engine, 3D Visualization')">
+            <h2><i class="fas fa-code"></i> Lunar Trajectory Simulation</h2>
+            <p>Advanced orbital mechanics for mission modeling.</p>
+            <p class="status-glow">SYSTEM: READY_TO_EXPAND</p>
+        </div>
+
+        <div class="panel span-1" onclick="openProject('890+ Star Hours', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Deep+Space', 'Over 890 hours of deep-space data acquisition. This project involved long-exposure astrophotography and tracking of celestial bodies to analyze light-curve variability in distant stars and galaxies.', 'Astrophotography, Data Analysis, CCD Optics')">
+            <h2><i class="fas fa-star-half-alt"></i> Total Star Hours</h2>
+            <p style="font-size: 2.5rem; color: var(--color-accent); font-family: var(--font-heading);">890+</p>
+            <p>Dedicated telescopic observation data.</p>
+        </div>
+
+        <div class="panel span-1" onclick="openProject('Rover Alpha: Autonomous Pathfinding', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Rover+Alpha', 'A robotic platform designed to navigate uneven lunar-simulated terrain. Utilizing LIDAR and ultrasonic sensors, the rover maps its environment in real-time to find the most efficient path autonomously.', 'Robotics, LIDAR, C++, Autonomous Logic')">
+            <h2><i class="fas fa-satellite"></i> Rover Alpha</h2>
+            <p>Autonomous navigation in simulated terrain.</p>
+        </div>
+
+        <div class="panel span-2" onclick="openProject('School Observatory Initiative', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Observatory', 'Deploying remote-access telescope systems in educational institutions. This project bridges the gap between students and the cosmos by allowing classroom-based real-time celestial study.', 'Remote Systems, Optics, Educational Outreach')">
+            <h2>School Observatory Setup</h2>
+            <p>Deploying remote-access optics for research.</p>
+            <p class="status-glow">CLICK TO VIEW BLUEPRINTS</p>
+        </div>
+    </main>
+
+    <div id="projectModal" class="modal-overlay">
+        <span class="close-btn" onclick="closeProject()">&times;</span>
+        <div class="modal-container">
+            <img id="modalImg" src="" class="modal-header-img">
+            <div class="modal-body">
+                <div class="modal-main">
+                    <h2 id="modalTitle" style="font-size: 3rem; margin-bottom: 20px;">Project Title</h2>
+                    <p id="modalDesc" style="font-size: 1.2rem; color: #ccc; line-height: 1.8;">Details...</p>
+                </div>
+                <div class="modal-side" style="border-left: 1px solid var(--color-border); padding-left: 30px;">
+                    <h3 style="margin-bottom: 10px;">Tech Stack</h3>
+                    <p id="modalStack" class="status-glow" style="margin-bottom: 30px;">Stack info</p>
+                    
+                    <h3>Inquiry</h3>
+                    <p>Contact the Lead Engineer for technical documentation.</p>
+                    <a href="mailto:vatsalgarg@astrobotixlabs.com" class="status-glow" style="text-decoration: none; display: block; margin-top: 10px;">[ TRANSMIT EMAIL ]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="mailto:vatsalgarg@astrobotixlabs.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/AstrobotixLabs/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 AstroBotix Labs. | System Status: <span class="status-glow">ONLINE</span></p>
+    </footer>
+
+    <script>
+        function openProject(title, img, desc, stack) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalStack').innerText = stack;
+            
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevents background scroll
+        }
+
+        function closeProject() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enables background scroll
+            }, 500);
+        }
+
+        // Close when clicking the blurred background
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) { closeProject(); }
+        }
+    </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | AstroBotix Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="AstroBotix Logo" class="logo-img">
+            <h1>ASTROBOTIX LABS</h1>
+        </a>>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="panel span-2" onclick="openProject('Lunar Trajectory Simulation', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Lunar+Sim', 'This Java-based orbital mechanics simulator calculates trajectories for crewed missions. It uses multi-body gravitational modeling and thrust-vectoring optimization to ensure mission success. Students can visualize orbital decay and landing burns in a high-fidelity 3D simulated environment.', 'Java, Physics Engine, 3D Visualization')">
+            <h2><i class="fas fa-code"></i> Lunar Trajectory Simulation</h2>
+            <p>Advanced orbital mechanics for mission modeling.</p>
+            <p class="status-glow">SYSTEM: READY_TO_EXPAND</p>
+        </div>
+
+        <div class="panel span-1" onclick="openProject('890+ Star Hours', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Deep+Space', 'Over 890 hours of deep-space data acquisition. This project involved long-exposure astrophotography and tracking of celestial bodies to analyze light-curve variability in distant stars and galaxies.', 'Astrophotography, Data Analysis, CCD Optics')">
+            <h2><i class="fas fa-star-half-alt"></i> Total Star Hours</h2>
+            <p style="font-size: 2.5rem; color: var(--color-accent); font-family: var(--font-heading);">890+</p>
+            <p>Dedicated telescopic observation data.</p>
+        </div>
+
+        <div class="panel span-1" onclick="openProject('Rover Alpha: Autonomous Pathfinding', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Rover+Alpha', 'A robotic platform designed to navigate uneven lunar-simulated terrain. Utilizing LIDAR and ultrasonic sensors, the rover maps its environment in real-time to find the most efficient path autonomously.', 'Robotics, LIDAR, C++, Autonomous Logic')">
+            <h2><i class="fas fa-satellite"></i> Rover Alpha</h2>
+            <p>Autonomous navigation in simulated terrain.</p>
+        </div>
+
+        <div class="panel span-2" onclick="openProject('School Observatory Initiative', 'https://via.placeholder.com/1000x600/061330/00eaff?text=Observatory', 'Deploying remote-access telescope systems in educational institutions. This project bridges the gap between students and the cosmos by allowing classroom-based real-time celestial study.', 'Remote Systems, Optics, Educational Outreach')">
+            <h2>School Observatory Setup</h2>
+            <p>Deploying remote-access optics for research.</p>
+            <p class="status-glow">CLICK TO VIEW BLUEPRINTS</p>
+        </div>
+    </main>
+
+    <div id="projectModal" class="modal-overlay">
+        <span class="close-btn" onclick="closeProject()">&times;</span>
+        <div class="modal-container">
+            <img id="modalImg" src="" class="modal-header-img">
+            <div class="modal-body">
+                <div class="modal-main">
+                    <h2 id="modalTitle" style="font-size: 3rem; margin-bottom: 20px;">Project Title</h2>
+                    <p id="modalDesc" style="font-size: 1.2rem; color: #ccc; line-height: 1.8;">Details...</p>
+                </div>
+                <div class="modal-side" style="border-left: 1px solid var(--color-border); padding-left: 30px;">
+                    <h3 style="margin-bottom: 10px;">Tech Stack</h3>
+                    <p id="modalStack" class="status-glow" style="margin-bottom: 30px;">Stack info</p>
+                    
+                    <h3>Inquiry</h3>
+                    <p>Contact the Lead Engineer for technical documentation.</p>
+                    <a href="mailto:vatsalgarg@astrobotixlabs.com" class="status-glow" style="text-decoration: none; display: block; margin-top: 10px;">[ TRANSMIT EMAIL ]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="mailto:vatsalgarg@astrobotixlabs.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/AstrobotixLabs/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 AstroBotix Labs. | System Status: <span class="status-glow">ONLINE</span></p>
+    </footer>
+
+    <script>
+        function openProject(title, img, desc, stack) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalStack').innerText = stack;
+            
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevents background scroll
+        }
+
+        function closeProject() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enables background scroll
+            }, 500);
+        }
+
+        // Close when clicking the blurred background
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) { closeProject(); }
+        }
+    </script>
+</body>
+</html>
+>>>>>>> 93194fdcecd749c0a1cdfbf87b149104d265f3d6
