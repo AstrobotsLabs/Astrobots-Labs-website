@@ -1,10 +1,12 @@
-/* --- CORE BRANDING & THEME --- */
+/* --- UPDATED BRANDING: ASTROBOTIX THEME --- */
 :root {
-    --color-bg: #030a1c; 
-    --color-bg-panel: #061330;
-    --color-accent: #00eaff;
-    --color-text: #e6f7ff; 
-    --color-border: rgba(0, 234, 255, 0.3);
+    --color-bg: #0d0d0d;            /* Deep charcoal/black from logo background */
+    --color-bg-panel: #1a1a1a;      /* Dark gray for panels */
+    --color-accent: #ff8c00;        /* Solar Orange from the logo 'A' and 'X' */
+    --color-accent-glow: rgba(255, 140, 0, 0.4);
+    --color-text: #f0f0f0;          /* Bright off-white */
+    --color-silver: #c0c0c0;        /* Silver from the logo text */
+    --color-border: rgba(192, 192, 192, 0.2);
     --font-heading: 'Share Tech Mono', monospace; 
     --font-body: 'Poppins', sans-serif; 
 }
@@ -16,35 +18,55 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 /* --- HEADER & NAVIGATION --- */
 header {
-    background: var(--color-bg-panel);
-    padding: 20px 5%;
+    background: var(--color-bg);
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px dashed var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px; /* Adjust based on your logo image size */
+    margin-right: 15px;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    color: var(--color-silver);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
 }
 
 nav a {
     margin-left: 20px;
-    color: var(--color-text);
+    color: var(--color-silver);
     text-decoration: none;
     font-family: var(--font-heading);
+    transition: 0.3s;
 }
 
-nav a.active, nav a:hover { color: var(--color-accent); text-shadow: 0 0 8px var(--color-accent); }
+nav a.active, nav a:hover { 
+    color: var(--color-accent); 
+}
 
-/* --- THE 3-COLUMN ASYMMETRIC BENTO GRID --- */
+/* --- BENTO GRID & PANELS --- */
 .content {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     padding: 40px 5%;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -52,87 +74,61 @@ nav a.active, nav a:hover { color: var(--color-accent); text-shadow: 0 0 8px var
     background: var(--color-bg-panel);
     border: 1px solid var(--color-border);
     padding: 30px;
-    border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+    border-radius: 4px; /* Sharper edges for a technical feel */
+    transition: 0.3s ease;
 }
 
 .panel:hover {
     border-color: var(--color-accent);
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 234, 255, 0.15);
+    box-shadow: 0 0 15px var(--color-accent-glow);
+    transform: translateY(-3px);
 }
 
-.span-1 { grid-column: span 1; }
 .span-2 { grid-column: span 2; }
 .span-3 { grid-column: span 3; }
 
-h2, h3 { font-family: var(--font-heading); color: var(--color-accent); text-transform: uppercase; margin-bottom: 10px; }
-.status-glow { color: #00ff88; text-shadow: 0 0 5px #00ff88; font-family: var(--font-heading); font-size: 0.9em; }
-
-/* --- THE SCROLLABLE POP-UP (MODAL) --- */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(3, 10, 28, 0.95);
-    backdrop-filter: blur(15px);
-    z-index: 9999;
-    overflow-y: auto; /* This makes the whole view scrollable */
-    padding: 40px 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+h2, h3 { 
+    font-family: var(--font-heading); 
+    color: var(--color-accent); 
+    margin-bottom: 15px;
 }
 
-.modal-overlay.active { display: block; opacity: 1; }
-
-.modal-container {
-    background: var(--color-bg-panel);
-    border: 1px solid var(--color-border);
-    max-width: 1000px;
-    margin: 40px auto;
-    border-radius: 16px;
-    position: relative;
-    transform: scale(0.8) translateY(50px);
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+.status-glow { 
+    color: var(--color-accent); 
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--color-accent);
 }
 
-.modal-overlay.active .modal-container { transform: scale(1) translateY(0); }
-
-.modal-header-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-bottom: 1px solid var(--color-border);
-    background: #000;
-}
-
-.modal-body {
-    padding: 50px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-}
-
-.close-btn {
-    position: fixed;
-    top: 20px; right: 40px;
+/* --- BUTTONS --- */
+.btn {
+    background: transparent;
+    border: 1px solid var(--color-accent);
     color: var(--color-accent);
-    font-size: 3.5rem;
-    cursor: pointer;
-    z-index: 10000;
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--color-accent);
+    color: #000;
 }
 
 /* --- FOOTER --- */
-footer { padding: 40px; text-align: center; border-top: 1px solid var(--color-border); margin-top: 50px; }
-.social-links a { color: var(--color-text); font-size: 1.5rem; margin: 0 15px; }
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 900px) {
-    .content { grid-template-columns: 1fr; }
-    .span-1, .span-2, .span-3 { grid-column: span 1; }
-    .modal-body { grid-template-columns: 1fr; padding: 30px; }
-    .modal-header-img { height: 250px; }
+footer {
+    padding: 40px 5%;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    margin-top: 50px;
 }
+
+.social-links a {
+    color: var(--color-silver);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.social-links a:hover { color: var(--color-accent); }
